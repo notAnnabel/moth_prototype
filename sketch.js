@@ -2,38 +2,20 @@ let flap;
 let wingclip;
 let wingbottomclip;
 
-<<<<<<< HEAD
 let wingarrayUL = [-197,30, -163, -158, -90, -151];
 let wingarrayUR = [217,30, 183, -158, 110, -151];
 let wingarrayLL = [-197,30, -163, -158, -90, -151];
 let wingarrayLR = [217,30, 183, -158, 110, -151];
-=======
-// let wingarrayUL = [-197,30, -163, -158, -90, -151];
-// let wingarrayUR = [217,30, 183, -158, 110, -151];
-// let wingarrayLL = [-197,30, -163, -158, -90, -151];
-// let wingarrayLR = [217,30, 183, -158, 110, -151];
->>>>>>> 61e4c97bd8d978416554a1f96afead5d000cae74
 
 var wingPatternImg;
 var wingPatternDarkImg;
 
-<<<<<<< HEAD
 function preload(){
   wingPatternImg = loadImage("wing_pattern.png");
   wingPatternDarkImg = loadImage("dark_moth_wing_pattern.png");
 
   antennaeImg = loadImage("antennae.png")
   bodyImg = loadImage("moth_body_texture.png")
-=======
-let moth = new Moth();
-
-let screenWidth = 600;
-let screenHeight = 400;
-
-function preload(){
-  wingPatternImg = loadImage("wing_pattern.png");
-  wingPatternDarkImg = loadImage("dark_moth_wing_pattern.png");
->>>>>>> 61e4c97bd8d978416554a1f96afead5d000cae74
 }
 
 function setup() {
@@ -59,22 +41,16 @@ function draw() {
   // 8 is the flap speed, 5 controls the flap range extremes
   
 
-<<<<<<< HEAD
   push()
   clip(drawBody)
   image(bodyImg, width/2-20, height/2-70, 40, 140)
   pop()
   
-=======
-  moth.update();
-  //drawBody()
->>>>>>> 61e4c97bd8d978416554a1f96afead5d000cae74
 
 
   
   //drawRightWing(flap)
   
-<<<<<<< HEAD
   wingtestLL= new Wings2(285, 160, flapLL, false, false, -200, -180, wingarrayLL, wingPatternImg, wingPatternDarkImg)
   //wingtestLL= new Wings2(-80, -100, flapLL, false, -200, -180, wingarrayLL, wingPatternImg, wingPatternDarkImg)
   //console.log(wingtestLL, 'is working')
@@ -96,30 +72,14 @@ function draw() {
   drawAntennaeTest()
   drawAntennaeTestL()
   
-=======
-  //wingtestLL= new Wings2(287, 160, flapLL, false, -200, -180, wingarrayLL)
-  // wingtestLL= new Wings2(-80, -100, flapLL, false, -200, -180, wingarrayLL, wingPatternImg, wingPatternDarkImg)
-  // //console.log(wingtestLL, 'is working')
-  // wingtestLL.update()
-
-  // wingtestLR = new Wings2(309, 160, flapLR, false, 0, -200, wingarrayLR, wingPatternImg, wingPatternDarkImg)
-  // wingtestLR.update()
-
-
-  // wingtestUL = new Wings2(287, 150, flapUL , true, -200, -180, wingarrayUL, wingPatternImg, wingPatternDarkImg);
-  // wingtestUL.update()
->>>>>>> 61e4c97bd8d978416554a1f96afead5d000cae74
 
   // wingtestUR = new Wings2(307, 150, flapUR, true, 0, -200, wingarrayUR, wingPatternImg, wingPatternDarkImg)
   // wingtestUR.update() 
 }
 
-<<<<<<< HEAD
 function drawBody(){
   push()
   fill("rgb(180,135,104)")
   ellipse(width/2-3,height/2-5,30,120,220) // 5 args
   pop()
 }
-=======
->>>>>>> 61e4c97bd8d978416554a1f96afead5d000cae74
