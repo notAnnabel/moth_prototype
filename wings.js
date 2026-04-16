@@ -1,82 +1,40 @@
-function drawLeftWing(flap){
-  push()
-  beginShape()
-  //translate(287, 150);
-  //rotate(-flap-90)
-  wingl = vertex(0, 0)
+class wing {
+    constructor(transX, transY, imageShiftX, imageShiftY, isTopWing, isWingLeft, wingPatternTop, wingPatternBottom) {
+        
+            // Initialize properties for the wing class
+            this.transX = transX;
+            this.transY = transY;
+            this.imageShiftX = imageShiftX;
+            this.imageShiftY = imageShiftY;
+            this.isTopWing = isTopWing;
+            this.isWingLeft = isWingLeft;
+            this.wingPatternTop = wingPatternTop;
+            this.wingPatternBottom = wingPatternBottom;
 
-  fill("rgb(212,199,156)")
-  
 
-  
-  //circle(287-197, 150+30, 10)
+            this.isFlipped;
+            // this.flapAmount = 16;
+            // this.flapMultiplier = 26;
+            this.isTopWing = true;
+            //this.wingSize = 200;
+        };
+
+
+        preload(){
+            this.wingPatternTop = loadImage('wing_pattern.png');
+            this.wingPatternBottom = loadImage('dark_moth_wing_pattern.png');
+        }
+
+        wingType(){
+            if (this.isTopWing === true) {
+                imgSrc = this.wingPatternTop;
+            } else {
+                imgSrc = this.wingPatternBottom;
+            }
+        }
 
 
 
-  // winglshape = bezierVertex(-237, -264, 3, -293,1, -101) og shape
-  winglshape = bezierVertex(-197,30, -163, -158, -90, -151) //+ og
-  endShape(CLOSE)
-  pop()
+        // flapping(){
+        //     let flap = sin(frameCount * this.flapMultiplier) * this.flapAmount;}
 }
-
-function drawRightWing(flap){
-  push()
-  //translate(307, 150)
-  //rotate(flap+90)
-  beginShape()
-  wingr = vertex(0,0)
-  fill("rgb(212,199,156)")
-  winglshape = bezierVertex(217,30, 183, -158, 110, -151)
-  endShape(CLOSE)
-  pop()
-}
-
-function drawLowerLeftWing(flap){
-  push()
-  beginShape()
-  //translate(287, 160);
-  //rotate(-flap*2-100)
-  wingl = vertex(0, 0)
-  
-  fill("rgb(212,199,156)")
-  
-  // winglshape = bezierVertex(-237, -234, 3, -263,1, -71) + og
-
-  winglshape = bezierVertex(-197,30, -163, -158, -90, -151) //+ og
-  endShape(CLOSE)
-  pop()
-
-  /* code to add
-    wingmaskL = loadImage('wing mask directory goes here')
-    use clip(wingmaskL) to clip wing colour to moth wing
-    the moth mask image needs to line up with the moth wing size!
-
-    translate()
-    rotate(-flap*2)
-    wingmaskLVertex = vertex(0,0)
-
-  */
-}
-
-
-function drawLowerRightWing(flap){
-  push()
-  beginShape()
-  // translate(309, 160);
-  // rotate(flap*2+100)
-  wingl = vertex(0, 0)
-  fill("rgb(212,199,156)")
-  winglshape = bezierVertex(217,30, 183, -158, 110, -151) 
-  endShape(CLOSE)
-  pop()
-}
-
-
-function drawRWmask(){
-  push()
-  beginShape()
-  translate(309,160);
-  rotate(flap*2+100)
-  pop()
-}
-
