@@ -22,7 +22,6 @@ function setup() {
   createCanvas(600, 400);
   angleMode(DEGREES)
   rectMode(CENTER)
-  moth.position = createVector(screenHeight * 0.5, screenWidth * 0.5 - 50)
 }
 
 function draw() {
@@ -53,7 +52,6 @@ function draw() {
   
   wingtestLL= new Wings2(285, 160, flapLL, false, false, -200, -180, wingarrayLL, wingPatternImg, wingPatternDarkImg)
   //wingtestLL= new Wings2(-80, -100, flapLL, false, -200, -180, wingarrayLL, wingPatternImg, wingPatternDarkImg)
-  //console.log(wingtestLL, 'is working')
   wingtestLL.update()
 
 
