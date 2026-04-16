@@ -6,7 +6,7 @@ let filling;
 
 class Wings2{
  
-  constructor(transX, transY, flapValue, wingTopBool, imageShiftX, imageShiftY, wingShape){
+  constructor(transX, transY, flapValue, wingTopBool, imageShiftX, imageShiftY, wingShape, wingClip, wingBottomClip){
     this.transX = transX
     this.transY = transY
     this.flapValue = flapValue
@@ -15,8 +15,8 @@ class Wings2{
     this.imageShiftY = imageShiftY
     this.wingscoordinatearray = wingShape;
     //winglshape = bezierVertex(217,30, 183, -158, 110, -151) 
-    this.wingclip = loadImage('wing_pattern.png'); // testing wing clipping
-    this.wingbottomclip = loadImage('dark_moth_wing_pattern.png')
+    this.wingclip = wingClip
+    this.wingbottomclip = wingBottomClip
     this.wingclip.resize(200,200)
     this.wingbottomclip.resize(200,200)
   }
@@ -51,6 +51,7 @@ class Wings2{
     //                              wings[2],wings[3],
     //                              wings[4],wings[5])
     bezierVertex(wingarrayUL[0],wingarrayUL[1], wingarrayUL[2],wingarrayUL[3], wingarrayUL[4],wingarrayUL[5])
+    
     //bezierVertex(wingShape[0],wingShape[1], wingShape[2],wingShape[3], wingShape[4],wingShape[5])
     //bezierVertex(this.wingscoordinatearray[0],this.wingscoordinatearray[1], this.wingscoordinatearray[2],this.wingscoordinatearray[3], this.wingscoordinatearray[4],this.wingscoordinatearray[5])
     filling = fill("rgb(212,199,156)")

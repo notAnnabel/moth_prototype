@@ -2,16 +2,29 @@ let flap;
 let wingclip;
 let wingbottomclip;
 
-let wingarrayUL = [-197,30, -163, -158, -90, -151];
-let wingarrayUR = [217,30, 183, -158, 110, -151];
-let wingarrayLL = [-197,30, -163, -158, -90, -151];
-let wingarrayLR = [217,30, 183, -158, 110, -151];
-  
+// let wingarrayUL = [-197,30, -163, -158, -90, -151];
+// let wingarrayUR = [217,30, 183, -158, 110, -151];
+// let wingarrayLL = [-197,30, -163, -158, -90, -151];
+// let wingarrayLR = [217,30, 183, -158, 110, -151];
+
+var wingPatternImg;
+var wingPatternDarkImg;
+
+let moth = new Moth();
+
+let screenWidth = 600;
+let screenHeight = 400;
+
+function preload(){
+  wingPatternImg = loadImage("wing_pattern.png");
+  wingPatternDarkImg = loadImage("dark_moth_wing_pattern.png");
+}
 
 function setup() {
   createCanvas(600, 400);
   angleMode(DEGREES)
   rectMode(CENTER)
+  moth.position = createVector(screenHeight * 0.5, screenWidth * 0.5 - 50)
 }
 
 function draw() {
@@ -25,36 +38,26 @@ function draw() {
   // flap = sin(frameCount * 8)*15; 
   // 8 is the flap speed, 5 controls the flap range extremes
 
-
-  drawBody()
+  moth.update();
+  //drawBody()
 
 
   
   //drawRightWing(flap)
   
   //wingtestLL= new Wings2(287, 160, flapLL, false, -200, -180, wingarrayLL)
-  wingtestLL= new Wings2(-80, -100, flapLL, false, -200, -180, wingarrayLL)
-  //console.log(wingtestLL, 'is working')
-  wingtestLL.update()
+  // wingtestLL= new Wings2(-80, -100, flapLL, false, -200, -180, wingarrayLL, wingPatternImg, wingPatternDarkImg)
+  // //console.log(wingtestLL, 'is working')
+  // wingtestLL.update()
 
-  wingtestLR = new Wings2(309, 160, flapLR, false, 0, -200, wingarrayLR)
-  wingtestLR.update()
+  // wingtestLR = new Wings2(309, 160, flapLR, false, 0, -200, wingarrayLR, wingPatternImg, wingPatternDarkImg)
+  // wingtestLR.update()
 
 
-  wingtestUL = new Wings2(287, 150, flapUL , true, -200, -180, wingarrayUL);
-  wingtestUL.update()
+  // wingtestUL = new Wings2(287, 150, flapUL , true, -200, -180, wingarrayUL, wingPatternImg, wingPatternDarkImg);
+  // wingtestUL.update()
 
-  wingtestUR = new Wings2(307, 150, flapUR, true, 0, -200, wingarrayUR)
-  wingtestUR.update() 
-  
-  
-  drawAntennaeLeft()
-  drawAntennaeRight()
-  
-
+  // wingtestUR = new Wings2(307, 150, flapUR, true, 0, -200, wingarrayUR, wingPatternImg, wingPatternDarkImg)
+  // wingtestUR.update() 
 }
 
-function drawBody(){
-  fill("rgb(180,135,104)")
-  ellipse(width/2-3,height/2-5,30,120,220) // 5 args
-}
