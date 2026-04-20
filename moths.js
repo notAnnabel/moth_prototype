@@ -15,7 +15,7 @@ class Moth {
     
 
     update() {
-        this.drawBody();
+        //this.drawBody();
         this.drawantennaeLeft();
         this.drawantennaeRight();
     }
@@ -48,9 +48,9 @@ class Moth {
         endShape()
         pop()
     }
-    drawBody() {
-        fill("rgb(180,135,104)")
-        ellipse(width/2-3,height/2-5, 30, 120,220) // 5 args
-    }
+    // drawBody() {
+    //     fill("rgb(180,135,104)")
+    //     ellipse(width/2-3,height/2-5, 30, 120,220) // 5 args
+    // }
   
 }

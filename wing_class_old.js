@@ -46,17 +46,17 @@ class Wings2{
     let wingshape;
     push()
     beginShape()
+    noStroke()
 
     wingvert = vertex(0,0)
     if (this.isRightBool === true){
-      wingshape = bezierVertex(wingarrayUR[0],wingarrayUR[1]*2, wingarrayUR[2],wingarrayUR[3], wingarrayUR[4],wingarrayUR[5])
+      wingshape = bezierVertex(wingarrayUR[0],wingarrayUR[1], wingarrayUR[2],wingarrayUR[3], wingarrayUR[4],wingarrayUR[5])
     } else {
       wingshape = bezierVertex(wingarrayUL[0],wingarrayUL[1], wingarrayUL[2],wingarrayUL[3], wingarrayUL[4],wingarrayUL[5])
-      scale
     }
     //bezierVertex(wingarrayUL[0],wingarrayUL[1], wingarrayUL[2],wingarrayUL[3], wingarrayUL[4],wingarrayUL[5])
 
-    filling = fill("rgb(212,199,156)")
+    filling = fill("rgba(212, 199, 156, 0)")
     endShape(CLOSE)
     pop()
   }

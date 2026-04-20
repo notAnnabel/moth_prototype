@@ -57,13 +57,11 @@ function draw() {
   //drawRightWing(flap)
   
   wingtestLL= new Wings2(width/5-9, height/3 - 55, flapLL, false, false, -200, -180, wingarrayLL, wingPatternImg, wingPatternDarkImg)
-  //wingtestLL= new Wings2(-80, -100, flapLL, false, -200, -180, wingarrayLL, wingPatternImg, wingPatternDarkImg)
   wingtestLL.update()
 
 
   wingtestLR = new Wings2(width/5+5, height/3 - 55, flapLR, false, true, 0, -200, wingarrayLR, wingPatternImg, wingPatternDarkImg)
-  // translate(width/2+2, height/2-60) right antennae
-  wingtestLR.update()
+ wingtestLR.update()
   
   wingtestUL = new Wings2(width/5-9, height/3 - 55, flapUL , true, false, -200, -180, wingarrayUL, wingPatternImg, wingPatternDarkImg);
   wingtestUL.update()
