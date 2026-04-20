@@ -19,7 +19,7 @@ function preload(){
 }
 
 function setup() {
-  createCanvas(600, 400);
+  createCanvas(windowWidth, windowHeight);
   angleMode(DEGREES)
   rectMode(CENTER)
 }
@@ -50,18 +50,19 @@ function draw() {
   
   //drawRightWing(flap)
   
-  wingtestLL= new Wings2(285, 160, flapLL, false, false, -200, -180, wingarrayLL, wingPatternImg, wingPatternDarkImg)
+  wingtestLL= new Wings2(width/2-9, height/2 - 55, flapLL, false, false, -200, -180, wingarrayLL, wingPatternImg, wingPatternDarkImg)
   //wingtestLL= new Wings2(-80, -100, flapLL, false, -200, -180, wingarrayLL, wingPatternImg, wingPatternDarkImg)
   wingtestLL.update()
 
 
-  wingtestLR = new Wings2(309, 160, flapLR, false, true, 0, -200, wingarrayLR, wingPatternImg, wingPatternDarkImg)
+  wingtestLR = new Wings2(width/2+5, height/2 - 55, flapLR, false, true, 0, -200, wingarrayLR, wingPatternImg, wingPatternDarkImg)
+  // translate(width/2+2, height/2-60) right antennae
   wingtestLR.update()
   
-  wingtestUL = new Wings2(288, 150, flapUL , true, false, -200, -180, wingarrayUL, wingPatternImg, wingPatternDarkImg);
+  wingtestUL = new Wings2(width/2-9, height/2 - 55, flapUL , true, false, -200, -180, wingarrayUL, wingPatternImg, wingPatternDarkImg);
   wingtestUL.update()
 
-  wingtestUR = new Wings2(307, 150, flapUR, true, true, 0, -200, wingarrayUR, wingPatternImg, wingPatternDarkImg)
+  wingtestUR = new Wings2(width/2+5, height/2 - 55, flapUR, true, true, 0, -200, wingarrayUR, wingPatternImg, wingPatternDarkImg)
   wingtestUR.update() 
   
   

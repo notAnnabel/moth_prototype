@@ -34,7 +34,7 @@
 function drawAntennaeTest(){
   push()
   antennaeImg.resize(100,100)
-  translate(width/3+105, height-257)
+  translate(width/2+2, height/2-60)
   rotate(20)
   rotate(antennaeMoveL)
   antennae = image(antennaeImg, 0,-100) // shift rotate point
@@ -47,7 +47,7 @@ function drawAntennaeTest(){
 function drawAntennaeTestL(){
   push()
   antennaeImg.resize(100,100)
-  translate(width/3+90, height-257)
+  translate(width/2-6, height/2-60)
   rotate(-20)
   rotate(antennaeMoveR)
   scale(-1,1) // flip horizontally
