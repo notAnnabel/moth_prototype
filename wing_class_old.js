@@ -18,8 +18,8 @@ class Wings2{
     //winglshape = bezierVertex(217,30, 183, -158, 110, -151) 
     this.wingclip = wingClip;
     this.wingbottomclip = wingBottomClip;
-    this.wingclip.resize(200,200)
-    this.wingbottomclip.resize(200,200)
+    this.wingclip.resize(200,200)*2
+    this.wingbottomclip.resize(200,200)*2
   }
   
   
@@ -49,7 +49,7 @@ class Wings2{
 
     wingvert = vertex(0,0)
     if (this.isRightBool === true){
-      wingshape = bezierVertex(wingarrayUR[0],wingarrayUR[1], wingarrayUR[2],wingarrayUR[3], wingarrayUR[4],wingarrayUR[5])
+      wingshape = bezierVertex(wingarrayUR[0],wingarrayUR[1]*2, wingarrayUR[2],wingarrayUR[3], wingarrayUR[4],wingarrayUR[5])
     } else {
       wingshape = bezierVertex(wingarrayUL[0],wingarrayUL[1], wingarrayUL[2],wingarrayUL[3], wingarrayUL[4],wingarrayUL[5])
       scale

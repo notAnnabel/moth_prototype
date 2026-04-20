@@ -18,6 +18,7 @@ function preload(){
 
   antennaeImg = loadImage("antennae.png")
   bodyImg = loadImage("moth_body_texture.png")
+  //bodyImg.resize(3000,3000)
 }
 
 function setup() {
@@ -36,6 +37,11 @@ function draw() {
   antennaeMove = sin(frameCount * 5)*8;
   antennaeMoveL = -antennaeMove;
   antennaeMoveR = antennaeMove;
+
+  /// divisionWidth = 
+  /// divisionHeight = 
+  scale(2,2)
+  
   
   background("rgb(180,214,214)");
   // flap = sin(frameCount * 8)*15; 
@@ -44,30 +50,27 @@ function draw() {
 
   push()
   clip(drawBody)
-  image(bodyImg, width/2-20, height/2-70, 40, 140)
+  image(bodyImg, width/5-20, height/3-70, 40, 140)
   pop()
   
-
-
   
   //drawRightWing(flap)
   
-  wingtestLL= new Wings2(width/2-9, height/2 - 55, flapLL, false, false, -200, -180, wingarrayLL, wingPatternImg, wingPatternDarkImg)
+  wingtestLL= new Wings2(width/5-9, height/3 - 55, flapLL, false, false, -200, -180, wingarrayLL, wingPatternImg, wingPatternDarkImg)
   //wingtestLL= new Wings2(-80, -100, flapLL, false, -200, -180, wingarrayLL, wingPatternImg, wingPatternDarkImg)
   wingtestLL.update()
 
 
-  wingtestLR = new Wings2(width/2+5, height/2 - 55, flapLR, false, true, 0, -200, wingarrayLR, wingPatternImg, wingPatternDarkImg)
+  wingtestLR = new Wings2(width/5+5, height/3 - 55, flapLR, false, true, 0, -200, wingarrayLR, wingPatternImg, wingPatternDarkImg)
   // translate(width/2+2, height/2-60) right antennae
   wingtestLR.update()
   
-  wingtestUL = new Wings2(width/2-9, height/2 - 55, flapUL , true, false, -200, -180, wingarrayUL, wingPatternImg, wingPatternDarkImg);
+  wingtestUL = new Wings2(width/5-9, height/3 - 55, flapUL , true, false, -200, -180, wingarrayUL, wingPatternImg, wingPatternDarkImg);
   wingtestUL.update()
 
-  wingtestUR = new Wings2(width/2+5, height/2 - 55, flapUR, true, true, 0, -200, wingarrayUR, wingPatternImg, wingPatternDarkImg)
+  wingtestUR = new Wings2(width/5+5, height/3 - 55, flapUR, true, true, 0, -200, wingarrayUR, wingPatternImg, wingPatternDarkImg)
   wingtestUR.update() 
   
-
 
   // transX, transY, flapValue, wingTopBool, isRightBool, imageShiftX, imageShiftY, wingShape, wingClip, wingBottomClip
   
@@ -79,6 +82,7 @@ function draw() {
 function drawBody(){
   push()
   fill("rgb(180,135,104)")
-  ellipse(width/2-3,height/2-5,30,120,220) // 5 args
+  ellipse(width/5-3,height/3-5,30,120,220) // 5 args
+  //ellipse(width/2-3,height/2-5,30,220) // 5 args
   pop()
 }
