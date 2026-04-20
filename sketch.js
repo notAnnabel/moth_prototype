@@ -3,6 +3,8 @@ let wingclip;
 let wingbottomclip;
 
 let wingarrayUL = [-197,30, -163, -158, -90, -151];
+//let wingarrayUL = [-394,60, -326, -316, -180, -302];
+
 let wingarrayUR = [217,30, 183, -158, 110, -151];
 let wingarrayLL = [-197,30, -163, -158, -90, -151];
 let wingarrayLR = [217,30, 183, -158, 110, -151];
@@ -65,15 +67,13 @@ function draw() {
   wingtestUR = new Wings2(width/2+5, height/2 - 55, flapUR, true, true, 0, -200, wingarrayUR, wingPatternImg, wingPatternDarkImg)
   wingtestUR.update() 
   
+
+
+  // transX, transY, flapValue, wingTopBool, isRightBool, imageShiftX, imageShiftY, wingShape, wingClip, wingBottomClip
   
-  //drawAntennaeLeft()
-  //drawAntennaeRight()
   drawAntennaeTest()
   drawAntennaeTestL()
-  
 
-  // wingtestUR = new Wings2(307, 150, flapUR, true, 0, -200, wingarrayUR, wingPatternImg, wingPatternDarkImg)
-  // wingtestUR.update() 
 }
 
 function drawBody(){
