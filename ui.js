@@ -53,4 +53,4 @@ function drawLabel(dot) {
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
-// testing the thing
+// testing the thing. ss
