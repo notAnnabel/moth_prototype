@@ -1,2 +1,2 @@
-# moth_movement_mask_pretty_copy_2026_04_13_19_01_11
+# This is a prototype of a moving moth using p5js
 
