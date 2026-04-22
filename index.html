@@ -24,12 +24,14 @@
   <body>
     <main>
     </main>
+
+    <!-- code from https://github.com/notAnnabel/mediapipe-test-with-javascript/blob/main/index.html-->
+
     <script src="sketch.js"></script>
     <div class="container">
         <video class="input_video"></video>
         <canvas class="output_canvas" width="1280px" height="720px"></canvas>
-
-        <script type="module">
+        <script type="module" id="camera_capture">
             const videoElement = document.getElementsByClassName('input_video')[0];
             const canvasElement = document.getElementsByClassName('output_canvas')[0];
             const canvasCtx = canvasElement.getContext('2d');
@@ -42,7 +44,7 @@
                 if (results.multiHandLandmarks) {
                     for (const landmarks of results.multiHandLandmarks) {
                         drawConnectors(canvasCtx, landmarks, HAND_CONNECTIONS,
-                            { color: '#00FF00', lineWidth: 5 });
+                            { color: '#00FF00', lineWidth: 0 });
                         drawLandmarks(canvasCtx, landmarks, { color: '#FF0000', lineWidth: 2 });
                     }
                 }

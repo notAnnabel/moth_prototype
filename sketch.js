@@ -9,8 +9,10 @@ let wingarrayUR = [217,30, 183, -158, 110, -151];
 let wingarrayLL = [-197,30, -163, -158, -90, -151];
 let wingarrayLR = [217,30, 183, -158, 110, -151];
 
-var wingPatternImg;
-var wingPatternDarkImg;
+let wingPatternImg;
+let wingPatternDarkImg;
+
+const videoElement = document.getElementsByClassName("input_video")[0];
 
 function preload(){
   wingPatternImg = loadImage("wing_pattern.png");
@@ -74,7 +76,11 @@ function draw() {
   
   drawAntennaeTest()
   drawAntennaeTestL()
-
+  
+  // document.getElementById("camera_capture") = function(){
+  //   //onResults(results)
+  // }
+  
 }
 
 function drawBody(){
