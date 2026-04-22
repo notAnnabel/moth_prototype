@@ -56,17 +56,17 @@ function draw() {
   
   //drawRightWing(flap)
   
-  wingtestLL= new Wings2(width/5-9, height/3 - 55, flapLL, false, false, -200, -180, wingarrayLL, wingPatternImg, wingPatternDarkImg)
+  wingtestLL= new Wings2(windowWidth/5-9, height/3 - 55, flapLL, false, false, -200, -180, wingarrayLL, wingPatternImg, wingPatternDarkImg)
   wingtestLL.update()
 
 
-  wingtestLR = new Wings2(width/5+5, height/3 - 55, flapLR, false, true, 0, -200, wingarrayLR, wingPatternImg, wingPatternDarkImg)
+  wingtestLR = new Wings2(windowWidth/5+5, height/3 - 55, flapLR, false, true, 0, -200, wingarrayLR, wingPatternImg, wingPatternDarkImg)
  wingtestLR.update()
   
-  wingtestUL = new Wings2(width/5-9, height/3 - 55, flapUL , true, false, -200, -180, wingarrayUL, wingPatternImg, wingPatternDarkImg);
+  wingtestUL = new Wings2(windowWidth/5-9, height/3 - 55, flapUL , true, false, -200, -180, wingarrayUL, wingPatternImg, wingPatternDarkImg);
   wingtestUL.update()
 
-  wingtestUR = new Wings2(width/5+5, height/3 - 55, flapUR, true, true, 0, -200, wingarrayUR, wingPatternImg, wingPatternDarkImg)
+  wingtestUR = new Wings2(windowWidth/5+5, height/3 - 55, flapUR, true, true, 0, -200, wingarrayUR, wingPatternImg, wingPatternDarkImg)
   wingtestUR.update() 
   
 
@@ -80,7 +80,7 @@ function draw() {
 function drawBody(){
   push()
   fill("rgb(180,135,104)")
-  ellipse(width/5-3,height/3-5,30,120,220) // 5 args
+  ellipse(windowWidth/5-3,height/3-5,30,120,220) // 5 args
   //ellipse(width/2-3,height/2-5,30,220) // 5 args
   pop()
 }
