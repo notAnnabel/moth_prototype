@@ -11,6 +11,7 @@ let wingarrayLR = [217,30, 183, -158, 110, -151];
 
 let wingPatternImg;
 let wingPatternDarkImg;
+let bg;
 
 const videoElement = document.getElementsByClassName("input_video")[0];
 
