@@ -12,6 +12,8 @@ let wingarrayLR = [217,30, 183, -158, 110, -151];
 let wingPatternImg;
 let wingPatternDarkImg;
 let bg;
+let grass1;
+let grass2;
 
 const videoElement = document.getElementsByClassName("input_video")[0];
 
@@ -22,6 +24,10 @@ function preload(){
   antennaeImg = loadImage("antennae.png")
   bodyImg = loadImage("moth_body_texture.png")
   //bodyImg.resize(3000,3000)
+
+  //Background grasses
+  grass1 = loadImage("assets/grass1.gif");
+  grass2 = loadImage("assets/grass2.gif");
 
   // ----------I'll delete "console.log" thing later----------
   bg = loadImage("assets/background-grass.png", 
@@ -53,7 +59,16 @@ function draw() {
   scale(2,2)
   image(bg, 0, 0, width/2, height/2);
   
+  //Grass images position and scale
+  let grassHeight = (height/2) / 2;  // 1/2 of background height
+  let grass1Width = grassHeight * (grass1.width / grass1.height);  // Keep grass1 proportional
+  let grass2Width = grassHeight * (grass2.width / grass2.height);  // Keep grass2 proportional
+  let grassY = (height/2) - grassHeight;  // Position at bottom of background
+  let grass1Y = grassY + 25;  // Move grass1 lower by 25 pixels
   
+  image(grass1, 0, grass1Y, grass1Width, grassHeight);  // Left side
+  image(grass2, (width/2) - grass2Width, grassY, grass2Width, grassHeight);  // Right side
+
   // background(bg);
   // flap = sin(frameCount * 8)*15; 
   // 8 is the flap speed, 5 controls the flap range extremes
