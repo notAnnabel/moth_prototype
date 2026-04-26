@@ -23,10 +23,11 @@ function preload(){
   bodyImg = loadImage("moth_body_texture.png")
   //bodyImg.resize(3000,3000)
 
-  // bg = loadImage("assets/background-grass.png", 
-  //   () => console.log("OK loaded"),
-  //   () => console.log("FAILED")
-  // );
+  // ----------I'll delete "console.log" thing later----------
+  bg = loadImage("assets/background-grass.png", 
+    () => console.log("OK loaded"),
+    () => console.log("FAILED")
+  );
 }
 
 function setup() {
@@ -48,11 +49,12 @@ function draw() {
 
   /// divisionWidth = 
   /// divisionHeight = 
+  background(0);
   scale(2,2)
+  image(bg, 0, 0, width/2, height/2);
   
   
   // background(bg);
-  background("rgb(180,214,214)");
   // flap = sin(frameCount * 8)*15; 
   // 8 is the flap speed, 5 controls the flap range extremes
   
