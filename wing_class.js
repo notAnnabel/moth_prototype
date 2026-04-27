@@ -56,7 +56,7 @@ class Wings2{
     }
     //bezierVertex(wingarrayUL[0],wingarrayUL[1], wingarrayUL[2],wingarrayUL[3], wingarrayUL[4],wingarrayUL[5])
 
-    filling = fill("rgba(212, 199, 156, 0)")
+    filling = fill("rgb(212, 199, 156)")
     endShape(CLOSE)
     pop()
   }
