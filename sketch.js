@@ -104,6 +104,12 @@ function draw() {
   // document.getElementById("camera_capture") = function(){
   //   //onResults(results)
   // }
+
+  // Draw UI in front at normal scale
+  push();
+  resetMatrix();
+  drawUI();
+  pop();
   
 }
 

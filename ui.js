@@ -10,18 +10,21 @@ function setup() {
   textFont("Arial");
 }
 
-function draw() {
-  background(20);
+function preload(){
+
+};
+
+function drawUI() {
 
   for (let dot of dots) {
     let isHovered = dist(mouseX, mouseY, dot.x, dot.y) < dot.r / 2;
 
-    // rysowanie kropki
+    // dots
     noStroke();
     fill(isHovered ? 180 : 255);
     circle(dot.x, dot.y, dot.r);
 
-    // jeśli mysz jest nad kropką, pokaż tekst obok
+    // when hover over, show a text
     if (isHovered) {
       drawLabel(dot);
     }
@@ -38,7 +41,7 @@ function drawLabel(dot) {
   let boxX = dot.x + dot.r / 2 + margin;
   let boxY = dot.y - textH / 2 - padding / 2;
 
-  // ramka tekstu
+  // text frame
   fill(255);
   stroke(0);
   strokeWeight(1);
@@ -53,4 +56,3 @@ function drawLabel(dot) {
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
-// testing the thing. ss
