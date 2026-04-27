@@ -48,17 +48,16 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  var mycanvas = createCanvas(windowWidth, windowHeight);
   angleMode(DEGREES)
   rectMode(CENTER)
 
 
   ///////////
-  var mycanvas = createCanvas(640, 360);
   mycanvas.parent('#p5canvas');
   video = createCapture(VIDEO);
-  video.size(640, 360);
-  video.hide();
+  video.size(windowWidth, windowHeight);
+  // video.hide();
 }
 
 function draw() {
@@ -130,12 +129,15 @@ function draw() {
   drawUI();
   pop();
 
-}
 
 
 
-  /////////// camera 
-  if (g_landmarks.length > 0) {
+
+    /////////// camera 
+
+
+    //pointerFinger = g_landmark[8];
+  if (g_landmarks[8]) {
     beginShape(POINTS);
     let count = 0;
     for (landmark of g_landmarks) {
@@ -143,12 +145,21 @@ function draw() {
         640 * landmark.x,
         360 * landmark.y
       );
+      push()
+      fill("white")
       text(count, 640 * landmark.x, 360 * landmark.y);
       count++;
+      pop()
     }
     endShape();
 
   }
+
+}
+
+
+
+
 
   function drawBody() {
     push()
