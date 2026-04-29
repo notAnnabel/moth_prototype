@@ -23,8 +23,6 @@ let wingtestLL;
 
 ///////////////////
 const videoElement = document.getElementsByClassName('input_video')[0];
-const canvasElement = document.getElementsByClassName('output_canvas')[0];
-const canvasCtx = canvasElement.getContext('2d');
 
 var g_landmarks = [];
 
@@ -243,14 +241,18 @@ const hands = new Hands({
 });
 hands.setOptions({
   maxNumHands: 1,
-  modelComplexity: 1,
-  minDetectionConfidence: 0.5,
-  minTrackingConfidence: 0.5
+  modelComplexity: 0,
+  minDetectionConfidence: 0.2,
+  minTrackingConfidence: 0.2
 });
 hands.onResults(onResults);
 
+let cameraFrame = 0;
+
 const camera = new Camera(videoElement, {
   onFrame: async () => {
+    cameraFrame++;
+    if (cameraFrame%5 === 0)
     await hands.send({ image: videoElement });
   },
   width: 1280,
@@ -259,9 +261,9 @@ const camera = new Camera(videoElement, {
 camera.start();
 
 
-function keyPressed() {
-  console.log(g_landmarks);
-}
+// function keyPressed() {
+//   console.log(g_landmarks);
+// }
 
 
 
