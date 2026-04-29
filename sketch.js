@@ -70,8 +70,8 @@ function setup() {
 
 function draw() {
   flap = sin(frameCount * 10) * 15;
-  flapUL = -flap - 90
-  flapUR = flap + 90
+  flapUL = -flap - 90 
+  flapUR = flap + 90 
   flapLL = -flap * 2 - 100
   flapLR = flap * 2 + 100
 
@@ -108,17 +108,21 @@ function draw() {
 
   //drawRightWing(flap)
 
-  wingtestLL = new Wings2(windowWidth / 5 - 9, height / 3 - 55, flapLL, false, false, -200, -180, wingarrayLL, wingTrimTop, wingTrimBottom)
+  wingtestLL = new Wings2(windowWidth / 5 - 9, height / 3 - 55, flapLL, false, false, 0, 0, wingarrayLL, wingTrimTop, wingTrimBottom)
+  //og img shift: -200, -180
   wingtestLL.update()
 
 
-  wingtestLR = new Wings2(windowWidth / 5 + 5, height / 3 - 55, flapLR, false, true, 0, -200, wingarrayLR, wingTrimTop, wingTrimBottom)
+  wingtestLR = new Wings2(windowWidth / 5 + 5, height / 3 - 55, flapLR, false, true, 0, 0, wingarrayLR, wingTrimTop, wingTrimBottom)
+  //og img shift: 0, -200
   wingtestLR.update()
 
-  wingtestUL = new Wings2(windowWidth / 5 - 9, height / 3 - 55, flapUL, true, false, -200, -180, wingarrayUL, wingTrimTop, wingTrimBottom);
+  wingtestUL = new Wings2(windowWidth / 5 - 9, height / 3 - 55, flapUL, true, false, 0, 0, wingarrayUL, wingTrimTop, wingTrimBottom);
+  //og img shift: -200, -180
   wingtestUL.update()
 
-  wingtestUR = new Wings2(windowWidth / 5 + 5, height / 3 - 55, flapUR, true, true, 0, -200, wingarrayUR, wingTrimTop, wingTrimBottom)
+  wingtestUR = new Wings2(windowWidth / 5 + 5, height / 3 - 55, flapUR, true, true, 0, 0, wingarrayUR, wingTrimTop, wingTrimBottom)
+  //og img shift: -0, -200
   wingtestUR.update()
 
 
