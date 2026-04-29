@@ -28,7 +28,7 @@ class Wings2{
      push()
      translate(this.transX, this.transY);
      rotate(this.flapValue)
-     clip(this.drawing.bind(this)) // bind is used since callback functions like clip() don't have access to the class's "this" context by default. By binding "this" to the drawing method, we ensure that when clip() calls it, it can access the class properties and methods correctly.
+     //clip(this.drawing.bind(this)) // bind is used since callback functions like clip() don't have access to the class's "this" context by default. By binding "this" to the drawing method, we ensure that when clip() calls it, it can access the class properties and methods correctly.
      //clip()
      
     if (this.wingTopBool === true){

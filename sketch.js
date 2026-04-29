@@ -2,6 +2,9 @@ let flap;
 let wingclip;
 let wingbottomclip;
 
+let wingimgtop;
+let wingimgbottom;
+
 let wingarrayUL = [-197, 30, -163, -158, -90, -151];
 //let wingarrayUL = [-394,60, -326, -316, -180, -302];
 
@@ -29,11 +32,16 @@ var cam;
 //////////////////
 
 function preload() {
-  wingPatternImg = loadImage("wing_pattern.png");
-  wingPatternDarkImg = loadImage("dark_moth_wing_pattern.png");
+  wingPatternImg = loadImage("assets/moth-assets/wing_pattern.png");
+  wingPatternDarkImg = loadImage("assets/moth-assets/dark_moth_wing_pattern.png");
 
-  antennaeImg = loadImage("antennae.png")
-  bodyImg = loadImage("moth_body_texture.png")
+  // testing
+  wingTrimTop = loadImage("assets/moth-assets/moth_trimmed_wing_top.png")
+  wingTrimBottom = loadImage("assets/moth-assets/moth_trimmed_wing_top.png")
+  ////////
+
+  antennaeImg = loadImage("assets/moth-assets/antennae.png")
+  bodyImg = loadImage("assets/moth-assets/moth_body_texture.png")
   //bodyImg.resize(3000,3000)
 
   //Background grasses
@@ -100,17 +108,17 @@ function draw() {
 
   //drawRightWing(flap)
 
-  wingtestLL = new Wings2(windowWidth / 5 - 9, height / 3 - 55, flapLL, false, false, -200, -180, wingarrayLL, wingPatternImg, wingPatternDarkImg)
+  wingtestLL = new Wings2(windowWidth / 5 - 9, height / 3 - 55, flapLL, false, false, -200, -180, wingarrayLL, wingTrimTop, wingTrimBottom)
   wingtestLL.update()
 
 
-  wingtestLR = new Wings2(windowWidth / 5 + 5, height / 3 - 55, flapLR, false, true, 0, -200, wingarrayLR, wingPatternImg, wingPatternDarkImg)
+  wingtestLR = new Wings2(windowWidth / 5 + 5, height / 3 - 55, flapLR, false, true, 0, -200, wingarrayLR, wingTrimTop, wingTrimBottom)
   wingtestLR.update()
 
-  wingtestUL = new Wings2(windowWidth / 5 - 9, height / 3 - 55, flapUL, true, false, -200, -180, wingarrayUL, wingPatternImg, wingPatternDarkImg);
+  wingtestUL = new Wings2(windowWidth / 5 - 9, height / 3 - 55, flapUL, true, false, -200, -180, wingarrayUL, wingTrimTop, wingTrimBottom);
   wingtestUL.update()
 
-  wingtestUR = new Wings2(windowWidth / 5 + 5, height / 3 - 55, flapUR, true, true, 0, -200, wingarrayUR, wingPatternImg, wingPatternDarkImg)
+  wingtestUR = new Wings2(windowWidth / 5 + 5, height / 3 - 55, flapUR, true, true, 0, -200, wingarrayUR, wingTrimTop, wingTrimBottom)
   wingtestUR.update()
 
 
