@@ -6,10 +6,9 @@ let filling;
 
 class Wings2{
  
-  constructor(transX, transY, flapValue, wingTopBool, isRightBool, imageShiftX, imageShiftY, wingShape, wingClip, wingBottomClip){
+  constructor(transX, transY, wingTopBool, isRightBool, imageShiftX, imageShiftY, wingShape, wingClip, wingBottomClip){
     this.transX = transX;
     this.transY = transY;
-    this.flapValue = flapValue;
     this.wingTopBool = wingTopBool;
     this.isRightBool = isRightBool;
     this.imageShiftX = imageShiftX;
@@ -63,7 +62,8 @@ class Wings2{
     pop()
   }
   
-  update(){
+  update(flapValue){
+    this.flapValue = flapValue;
     this.clipping();
     this.drawing();
   }

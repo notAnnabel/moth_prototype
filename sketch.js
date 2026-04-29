@@ -18,6 +18,8 @@ let bg;
 let grass1;
 let grass2;
 
+let wingtestLL;
+
 
 ///////////////////
 const videoElement = document.getElementsByClassName('input_video')[0];
@@ -53,9 +55,18 @@ function preload() {
     () => console.log("OK loaded"),
     () => console.log("FAILED")
   );
+
+  
 }
 
 function setup() {
+
+// pre calculate sines
+  for (let i = 0; i < flapLength; i++) {
+    let angle = i * 360 / flapLength;
+    flapArray.push(sin(angle) * 15);
+  }
+
   var mycanvas = createCanvas(windowWidth, windowHeight);
   angleMode(DEGREES)
   rectMode(CENTER)
@@ -66,12 +77,29 @@ function setup() {
   video = createCapture(VIDEO);
   video.size(windowWidth, windowHeight);
   // video.hide();
+
+  // create wing objects
+  wingtestLL = new Wings2(windowWidth / 5 - 9, height / 3 - 55, false, false, 0, 0, wingarrayLL, wingTrimTop, wingTrimBottom);
+  wingtestLR = new Wings2(windowWidth / 5 + 5, height / 3 - 55, false, true, 0, 0, wingarrayLR, wingTrimTop, wingTrimBottom);
+  wingtestUL = new Wings2(windowWidth / 5 - 9, height / 3 - 55, true, false, 0, 0, wingarrayUL, wingTrimTop, wingTrimBottom);
+  wingtestUR = new Wings2(windowWidth / 5 + 5, height / 3 - 55, true, true, 0, 0, wingarrayUR, wingTrimTop, wingTrimBottom);
 }
 
+let flapArray = [];
+let flapLength = 1000;
+
+
 function draw() {
+
+  // let startTime = performance.now();
+  // flap = flapArray[frameCount % flapLength];
   flap = sin(frameCount * 10) * 15;
-  flapUL = -flap - 90 
-  flapUR = flap + 90 
+  // let endTime = performance.now();
+
+  // console.log(endTime - startTime);
+
+  flapUL = -flap - 90
+  flapUR = flap + 90
   flapLL = -flap * 2 - 100
   flapLR = flap * 2 + 100
 
@@ -100,30 +128,44 @@ function draw() {
   // 8 is the flap speed, 5 controls the flap range extremes
 
 
+  // let startTime = performance.now();
   push()
   clip(drawBody)
   image(bodyImg, width / 5 - 20, height / 3 - 70, 40, 140)
   pop()
+  // let endTime = performance.now();
+  // console.log(endTime - startTime);
 
 
   //drawRightWing(flap)
 
-  wingtestLL = new Wings2(windowWidth / 5 - 9, height / 3 - 55, flapLL, false, false, 0, 0, wingarrayLL, wingTrimTop, wingTrimBottom)
+
+  wingtestLL.update(flapLL);
+  wingtestLR.update(flapLR);
+  wingtestUL.update(flapUL);
+  wingtestUR.update(flapUR);
+
+
+
+  // wingtestLL = new Wings2(windowWidth / 5 - 9, height / 3 - 55, flapLL, false, false, 0, 0, wingarrayLL, wingTrimTop, wingTrimBottom)
+
   //og img shift: -200, -180
-  wingtestLL.update()
+  // wingtestLL.update()
 
 
-  wingtestLR = new Wings2(windowWidth / 5 + 5, height / 3 - 55, flapLR, false, true, 0, 0, wingarrayLR, wingTrimTop, wingTrimBottom)
+  //TO DO -> remove constructors & use update function
+  
+  // wingtestLR = new Wings2(windowWidth / 5 + 5, height / 3 - 55, flapLR, false, true, 0, 0, wingarrayLR, wingTrimTop, wingTrimBottom)
   //og img shift: 0, -200
-  wingtestLR.update()
+  // wingtestLR.update()
 
-  wingtestUL = new Wings2(windowWidth / 5 - 9, height / 3 - 55, flapUL, true, false, 0, 0, wingarrayUL, wingTrimTop, wingTrimBottom);
+  // wingtestUL = new Wings2(windowWidth / 5 - 9, height / 3 - 55, flapUL, true, false, 0, 0, wingarrayUL, wingTrimTop, wingTrimBottom);
   //og img shift: -200, -180
-  wingtestUL.update()
+  // wingtestUL.update()
 
-  wingtestUR = new Wings2(windowWidth / 5 + 5, height / 3 - 55, flapUR, true, true, 0, 0, wingarrayUR, wingTrimTop, wingTrimBottom)
+  // wingtestUR = new Wings2(windowWidth / 5 + 5, height / 3 - 55, flapUR, true, true, 0, 0, wingarrayUR, wingTrimTop, wingTrimBottom)
   //og img shift: -0, -200
-  wingtestUR.update()
+  // wingtestUR.update()
 
 
   // transX, transY, flapValue, wingTopBool, isRightBool, imageShiftX, imageShiftY, wingShape, wingClip, wingBottomClip
@@ -145,10 +187,10 @@ function draw() {
 
 
 
-    /////////// camera 
+  /////////// camera 
 
 
-    //pointerFinger = g_landmark[8];
+  //pointerFinger = g_landmark[8];
   if (g_landmarks[8]) {
     beginShape(POINTS);
     let count = 0;
@@ -173,48 +215,48 @@ function draw() {
 
 
 
-  function drawBody() {
-    push()
-    fill("rgb(180,135,104)")
-    ellipse(windowWidth / 5 - 3, height / 3 - 5, 30, 120, 220) // 5 args
-    //ellipse(width/2-3,height/2-5,30,220) // 5 args
-    pop()
-  }
+function drawBody() {
+  push()
+  fill("rgb(180,135,104)")
+  ellipse(windowWidth / 5 - 3, height / 3 - 5, 30, 120, 220) // 5 args
+  //ellipse(width/2-3,height/2-5,30,220) // 5 args
+  pop()
+}
 
 
-  /////////////// added functions test
-  function onResults(results) {
-    if (results.multiHandLandmarks) {
-      for (const landmarks of results.multiHandLandmarks) {
-        g_landmarks = landmarks;
-      }
-
-      // 指文字認識をさせるタイミングはここでやるのがいいと思う．
-
+/////////////// added functions test
+function onResults(results) {
+  if (results.multiHandLandmarks) {
+    for (const landmarks of results.multiHandLandmarks) {
+      g_landmarks = landmarks;
     }
+
+    // 指文字認識をさせるタイミングはここでやるのがいいと思う．
+
   }
+}
 
 const hands = new Hands({
-    locateFile: (file) => {
-      return `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`;
-    }
-  });
-  hands.setOptions({
-    maxNumHands: 1,
-    modelComplexity: 1,
-    minDetectionConfidence: 0.5,
-    minTrackingConfidence: 0.5
-  });
+  locateFile: (file) => {
+    return `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`;
+  }
+});
+hands.setOptions({
+  maxNumHands: 1,
+  modelComplexity: 1,
+  minDetectionConfidence: 0.5,
+  minTrackingConfidence: 0.5
+});
 hands.onResults(onResults);
 
 const camera = new Camera(videoElement, {
-    onFrame: async () => {
-      await hands.send({ image: videoElement });
-    },
-    width: 1280,
-    height: 720
+  onFrame: async () => {
+    await hands.send({ image: videoElement });
+  },
+  width: 1280,
+  height: 720
 });
-  camera.start();
+camera.start();
 
 
 function keyPressed() {
