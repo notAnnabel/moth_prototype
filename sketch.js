@@ -83,11 +83,11 @@ function setup() {
 
   // create wing objects
   push()
-  scale(-1,-1)
-  wingtestLL = new Wings2(windowWidth / 5 - 9, height / 3 - 55, false, false, 0, 0, wingarrayLL, wingTrimTopL, wingTrimBottomL);
+  //scale(-1,-1)
+  wingtestLL = new Wings2(windowWidth / 5 - 9, height / 3 - 55, false, false, -200, 0, wingarrayLL, wingTrimTopL, wingTrimBottomL);
   pop()
   wingtestLR = new Wings2(windowWidth / 5 + 5, height / 3 - 55, false, true, 0, 0, wingarrayLR, wingTrimTop, wingTrimBottom);
-  wingtestUL = new Wings2(windowWidth / 5 - 9, height / 3 - 55, true, false, 0, 0, wingarrayUL, wingTrimTopL, wingTrimBottomL);
+  wingtestUL = new Wings2(windowWidth / 5 - 9, height / 3 - 55, true, false, -200, 0, wingarrayUL, wingTrimTopL, wingTrimBottomL);
   wingtestUR = new Wings2(windowWidth / 5 + 5, height / 3 - 55, true, true, 0, 0, wingarrayUR, wingTrimTop, wingTrimBottom);
 }
 
