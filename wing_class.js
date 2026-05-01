@@ -31,13 +31,11 @@ class Wings2{
      //clip()
      
     if (this.wingTopBool === true){
-      push()
       imageSrc = this.wingclip;
-      pop()
     } else {
       imageSrc = this.wingbottomclip;
     }
-     
+    
      image(imageSrc, this.imageShiftX, this.imageShiftY)
      pop()
    }

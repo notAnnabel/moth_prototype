@@ -37,8 +37,13 @@ function preload() {
 
   // testing
   wingTrimTop = loadImage("assets/moth-assets/moth_trimmed_wing_top.png")
-  wingTrimBottom = loadImage("assets/moth-assets/moth_trimmed_wing_top.png")
+  wingTrimBottom = loadImage("assets/moth-assets/moth_trimmed_wing_bottom.png")
   ////////
+
+  /// testing again -- future varibles just incase///
+  wingTrimTopL = loadImage("assets/moth-assets/moth_trimmed_wing_top_L.png")
+  wingTrimBottomL = loadImage("assets/moth-assets/moth_trimmed_wing_bottom_L.png")
+
 
   antennaeImg = loadImage("assets/moth-assets/antennae.png")
   bodyImg = loadImage("assets/moth-assets/moth_body_texture.png")
@@ -77,9 +82,12 @@ function setup() {
   // video.hide();
 
   // create wing objects
-  wingtestLL = new Wings2(windowWidth / 5 - 9, height / 3 - 55, false, false, 0, 0, wingarrayLL, wingTrimTop, wingTrimBottom);
+  push()
+  scale(-1,-1)
+  wingtestLL = new Wings2(windowWidth / 5 - 9, height / 3 - 55, false, false, 0, 0, wingarrayLL, wingTrimTopL, wingTrimBottomL);
+  pop()
   wingtestLR = new Wings2(windowWidth / 5 + 5, height / 3 - 55, false, true, 0, 0, wingarrayLR, wingTrimTop, wingTrimBottom);
-  wingtestUL = new Wings2(windowWidth / 5 - 9, height / 3 - 55, true, false, 0, 0, wingarrayUL, wingTrimTop, wingTrimBottom);
+  wingtestUL = new Wings2(windowWidth / 5 - 9, height / 3 - 55, true, false, 0, 0, wingarrayUL, wingTrimTopL, wingTrimBottomL);
   wingtestUR = new Wings2(windowWidth / 5 + 5, height / 3 - 55, true, true, 0, 0, wingarrayUR, wingTrimTop, wingTrimBottom);
 }
 
