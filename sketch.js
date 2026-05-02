@@ -83,7 +83,6 @@ function setup() {
 
   // create wing objects
   push()
-  //scale(-1,-1)
   wingtestLL = new Wings2(windowWidth / 5 - 9, height / 3 - 55, false, false, -200, 0, wingarrayLL, wingTrimTopL, wingTrimBottomL);
   pop()
   wingtestLR = new Wings2(windowWidth / 5 + 5, height / 3 - 55, false, true, 0, 0, wingarrayLR, wingTrimTop, wingTrimBottom);
@@ -144,7 +143,6 @@ function draw() {
 
 
   //drawRightWing(flap)
-
 
   wingtestLL.update(flapLL);
   wingtestLR.update(flapLR);

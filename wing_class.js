@@ -14,6 +14,8 @@ class Wings2{
     this.imageShiftX = imageShiftX;
     this.imageShiftY = imageShiftY;
     this.wingscoordinatearray = wingShape;
+
+    this.startRotation = 0;
     //winglshape = bezierVertex(217,30, 183, -158, 110, -151) 
     this.wingclip = wingClip;
     this.wingbottomclip = wingBottomClip;
@@ -35,8 +37,20 @@ class Wings2{
     } else {
       imageSrc = this.wingbottomclip;
     }
+
+    if (this.isRightBool === true){
+      push()
+      rotate(-100)
+      image(imageSrc, this.imageShiftX, this.imageShiftY)
+      pop()
+    } else {
+      push()
+      rotate(100)
+      image(imageSrc, this.imageShiftX, this.imageShiftY)
+      pop()
+    }
     
-     image(imageSrc, this.imageShiftX, this.imageShiftY)
+     //image(imageSrc, this.imageShiftX, this.imageShiftY)
      pop()
    }
 
