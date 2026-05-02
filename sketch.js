@@ -235,8 +235,6 @@ function onResults(results) {
       g_landmarks = landmarks;
     }
 
-    // 指文字認識をさせるタイミングはここでやるのがいいと思う．
-
   }
 }
 
