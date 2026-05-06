@@ -1,14 +1,12 @@
 let dots = [
-  { x: 70, y: 90, r: 50, label: "The first dot" },
-  { x: 500, y: 80, r: 50, label: "The sesond dot" },
-  { x: 900, y: 80, r: 50, label: "3 Why do I have to suffer?!" }
+  { x: 70, y: 90, r: 100, label: "Did you know that..." },
+  { x: 500, y: 200, r: 100, label: "The sesond dot" },
+  { x: 900, y: 80, r: 100, label: "3 Why do I have to suffer?!" }
 ];
-let maxWidth = 600;
+let maxWidth = 800;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  textSize(16);
-  textFont("Arial");
   textAlign("CENTER");
 }
 
@@ -24,7 +22,7 @@ function drawUI() {
     // dots
     noStroke();
     fill(isHovered ? 10 : 255,255,255,100);
-    circle(dot.x, dot.y, dot.r+30);
+    circle(dot.x, dot.y, dot.r);
 
     // when hover over, show a text
     if (isHovered) {
