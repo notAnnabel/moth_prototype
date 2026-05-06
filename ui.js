@@ -1,7 +1,7 @@
 let dots = [
-  { x: 70, y: 90, r: 100, label: "Did you know that..." },
-  { x: 500, y: 200, r: 100, label: "The sesond dot" },
-  { x: 900, y: 80, r: 100, label: "3 Why do I have to suffer?!" }
+  { x: 70, y: 90, r: 200, label: "Did you know that... " },
+  { x: 500, y: 200, r: 200, label: "The sesond dot" },
+  { x: 900, y: 80, r: 200, label: "3 Why do I have to suffer?!" }
 ];
 let maxWidth = 800;
 
@@ -22,7 +22,7 @@ function drawUI() {
     // dots
     noStroke();
     fill(isHovered ? 10 : 255,255,255,100);
-    circle(dot.x, dot.y, dot.r);
+    rect(dot.x, dot.y, dot.r, dot.r, 10);
 
     // when hover over, show a text
     if (isHovered) {
@@ -30,28 +30,6 @@ function drawUI() {
     }
   }
 }
-
-// function drawLabel(dot) {
-//   let margin = 6;
-//   let padding = 4;
-
-//   let textW = textWidth(dot.label);
-//   let textH = 50;
-
-//   let boxX = dot.x + dot.r / 2 + margin;
-//   let boxY = dot.y - textH / 2 - padding / 2;
-
-//   // text frame
-//   fill(255);
-//   noStroke();
-//   strokeWeight(1);
-//   rect(boxX, boxY, textW + padding * 2, textH + padding, 8);
-
-//   // tekst
-//   noStroke();
-//   fill(0);
-//   text(dot.label, boxX, boxY, padding/2);
-// }
 
 
 function drawLabel(dot) {
@@ -66,7 +44,3 @@ let div = createDiv(dot.label);
   }, 2000);
   
 }
-
-// function windowResized() {
-//   resizeCanvas(windowWidth, windowHeight);
-// }
