@@ -1,13 +1,15 @@
 let dots = [
-  { x: 60, y: 650, r: 50, label: "The first dot" },
-  { x: 700, y: 770, r: 50, label: "The sesond dot" },
-  { x: 1250, y: 670, r: 50, label: "3 Why do I have to suffer?!" }
+  { x: 70, y: 90, r: 50, label: "The first dot" },
+  { x: 500, y: 80, r: 50, label: "The sesond dot" },
+  { x: 900, y: 80, r: 50, label: "3 Why do I have to suffer?!" }
 ];
+let maxWidth = 300;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   textSize(16);
   textFont("Arial");
+  textAlign("CENTER");
 }
 
 function preload(){
@@ -21,7 +23,7 @@ function drawUI() {
 
     // dots
     noStroke();
-    fill(isHovered ? 180 : 255);
+    fill(isHovered ? 10 : 255,255,255,100);
     circle(dot.x, dot.y, dot.r);
 
     // when hover over, show a text
@@ -31,28 +33,42 @@ function drawUI() {
   }
 }
 
+// function drawLabel(dot) {
+//   let margin = 6;
+//   let padding = 4;
+
+//   let textW = textWidth(dot.label);
+//   let textH = 50;
+
+//   let boxX = dot.x + dot.r / 2 + margin;
+//   let boxY = dot.y - textH / 2 - padding / 2;
+
+//   // text frame
+//   fill(255);
+//   noStroke();
+//   strokeWeight(1);
+//   rect(boxX, boxY, textW + padding * 2, textH + padding, 8);
+
+//   // tekst
+//   noStroke();
+//   fill(0);
+//   text(dot.label, boxX, boxY, padding/2);
+// }
+
+
 function drawLabel(dot) {
-  let margin = 5;
-  let padding = 8;
 
-  let textW = textWidth(dot.label);
-  let textH = 20;
 
-  let boxX = dot.x + dot.r / 2 + margin;
-  let boxY = dot.y - textH / 2 - padding / 2;
+let div = createDiv(dot.label);
+  div.addClass('p5div');
+  div.position(dot.x, dot.r);
 
-  // text frame
-  fill(255);
-  stroke(0);
-  strokeWeight(1);
-  rect(boxX, boxY, textW + padding * 2, textH + padding, 6);
-
-  // tekst
-  noStroke();
-  fill(0);
-  text(dot.label, boxX + padding, boxY + textH);
+  setTimeout(() => {
+    div.remove();
+  }, 2000);
+  
 }
 
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-}
+// function windowResized() {
+//   resizeCanvas(windowWidth, windowHeight);
+// }

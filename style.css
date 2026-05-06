@@ -5,3 +5,9 @@ html, body {
 canvas {
   display: block;
 }
+
+.p5div {
+  background-color: white;
+  width: 100px;
+  
+}
