@@ -196,21 +196,24 @@ function draw() {
 
   //pointerFinger = g_landmark[8];
   if (g_landmarks[8]) {
+    push();
+    // resetMatrix();
+    scale(.5, .5);
     beginShape(POINTS);
     let count = 0;
     for (landmark of g_landmarks) {
       vertex(
-        640 * landmark.x,
-        360 * landmark.y
+        X_LANDMARK_MULTIPLIER * landmark.x,
+        Y_LANDMARK_MULTIPLIER * landmark.y
       );
       push()
       fill("white")
-      text(count, 640 * landmark.x, 360 * landmark.y);
+      text(count, windowWidth * landmark.x, windowHeight * landmark.y);
       count++;
       pop()
     }
     endShape();
-
+    pop();
   }
 
 }

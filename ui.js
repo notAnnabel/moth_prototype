@@ -15,14 +15,19 @@ function preload(){
 };
 
 function drawUI() {
-
   for (let dot of dots) {
-    let isHovered = dist(mouseX, mouseY, dot.x, dot.y) < dot.r / 2;
+    let isHovered = false;
+    for(let landmark of g_landmarks){
+      if(dist(windowWidth * landmark.x, windowHeight * landmark.y, dot.x, dot.y) < dot.r / 2) {
+        isHovered = true;
+      }
+    }
+
 
     // dots
     noStroke();
     fill(isHovered ? 10 : 255,255,255,100);
-    rect(dot.x, dot.y, dot.r, dot.r, 10);
+    circle(dot.x, dot.y, dot.r, dot.r, 10);
 
     // when hover over, show a text
     if (isHovered) {
