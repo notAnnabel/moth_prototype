@@ -6,15 +6,16 @@ let filling;
 
 class Wings2{
  
-  constructor(transX, transY, flapValue, wingTopBool, isRightBool, imageShiftX, imageShiftY, wingShape, wingClip, wingBottomClip){
+  constructor(transX, transY, wingTopBool, isRightBool, imageShiftX, imageShiftY, wingShape, wingClip, wingBottomClip){
     this.transX = transX;
     this.transY = transY;
-    this.flapValue = flapValue;
     this.wingTopBool = wingTopBool;
     this.isRightBool = isRightBool;
     this.imageShiftX = imageShiftX;
     this.imageShiftY = imageShiftY;
     this.wingscoordinatearray = wingShape;
+
+    this.startRotation = 0;
     //winglshape = bezierVertex(217,30, 183, -158, 110, -151) 
     this.wingclip = wingClip;
     this.wingbottomclip = wingBottomClip;
@@ -28,7 +29,7 @@ class Wings2{
      push()
      translate(this.transX, this.transY);
      rotate(this.flapValue)
-     clip(this.drawing.bind(this)) // bind is used since callback functions like clip() don't have access to the class's "this" context by default. By binding "this" to the drawing method, we ensure that when clip() calls it, it can access the class properties and methods correctly.
+     //clip(this.drawing.bind(this)) // bind is used since callback functions like clip() don't have access to the class's "this" context by default. By binding "this" to the drawing method, we ensure that when clip() calls it, it can access the class properties and methods correctly.
      //clip()
      
     if (this.wingTopBool === true){
@@ -36,8 +37,20 @@ class Wings2{
     } else {
       imageSrc = this.wingbottomclip;
     }
-     
-     image(imageSrc, this.imageShiftX, this.imageShiftY)
+
+    if (this.isRightBool === true){
+      push()
+      rotate(-100)
+      image(imageSrc, this.imageShiftX, this.imageShiftY)
+      pop()
+    } else {
+      push()
+      rotate(100)
+      image(imageSrc, this.imageShiftX, this.imageShiftY)
+      pop()
+    }
+    
+     //image(imageSrc, this.imageShiftX, this.imageShiftY)
      pop()
    }
 
@@ -56,12 +69,13 @@ class Wings2{
     }
     //bezierVertex(wingarrayUL[0],wingarrayUL[1], wingarrayUL[2],wingarrayUL[3], wingarrayUL[4],wingarrayUL[5])
 
-    filling = fill("rgba(212, 199, 156, 0)")
+    filling = fill("rgb(212, 199, 156)")
     endShape(CLOSE)
     pop()
   }
   
-  update(){
+  update(flapValue){
+    this.flapValue = flapValue;
     this.clipping();
     this.drawing();
   }

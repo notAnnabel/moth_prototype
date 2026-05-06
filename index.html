@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.11.11/lib/p5.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.11.11/lib/addons/p5.sound.min.js"></script>
     <script src="antennae.js"></script>
@@ -11,24 +12,32 @@
 
     <!-- hand tracking media pipe scripts -->
     <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"
+        crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
-    
-    
-    
+
+
+
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="utf-8" />
 
-  </head>
-  <body>
+</head>
+
+<body>
     <main>
     </main>
 
     <!-- code from https://github.com/notAnnabel/mediapipe-test-with-javascript/blob/main/index.html-->
 
-    <script src="sketch.js"></script>
     <div class="container">
+        <video class="input_video" hidden></video>
+        <canvas class="output_canvas" width="1280px" height="720px" hidden></canvas>
+        <div id="p5canvas"></div>
+    </div>
+    <script src="sketch.js"></script>
+    <!-- <div class="container">
         <video class="input_video"></video>
         <canvas class="output_canvas" width="1280px" height="720px"></canvas>
         <script type="module" id="camera_capture">
@@ -73,6 +82,7 @@
             });
             camera.start();
         </script>
-    </div>
-  </body>
+    </div> -->
+</body>
+
 </html>
