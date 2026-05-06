@@ -9,5 +9,6 @@ canvas {
 .p5div {
   background-color: white;
   width: 100px;
-  
+  border-radius: 20px;
+  padding: 10px;
 }

@@ -3,7 +3,7 @@ let dots = [
   { x: 500, y: 80, r: 50, label: "The sesond dot" },
   { x: 900, y: 80, r: 50, label: "3 Why do I have to suffer?!" }
 ];
-let maxWidth = 300;
+let maxWidth = 600;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -24,7 +24,7 @@ function drawUI() {
     // dots
     noStroke();
     fill(isHovered ? 10 : 255,255,255,100);
-    circle(dot.x, dot.y, dot.r);
+    circle(dot.x, dot.y, dot.r+30);
 
     // when hover over, show a text
     if (isHovered) {
