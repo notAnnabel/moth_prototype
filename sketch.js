@@ -5,13 +5,6 @@ let wingbottomclip;
 let wingimgtop;
 let wingimgbottom;
 
-let wingarrayUL = [-197, 30, -163, -158, -90, -151];
-//let wingarrayUL = [-394,60, -326, -316, -180, -302];
-
-let wingarrayUR = [217, 30, 183, -158, 110, -151];
-let wingarrayLL = [-197, 30, -163, -158, -90, -151];
-let wingarrayLR = [217, 30, 183, -158, 110, -151];
-
 let wingPatternImg;
 let wingPatternDarkImg;
 let bg;
@@ -36,8 +29,8 @@ function preload() {
   wingPatternDarkImg = loadImage("assets/moth-assets/dark_moth_wing_pattern.png");
 
   // testing
-  wingTrimTop = loadImage("assets/moth-assets/moth_trimmed_wing_top.png")
-  wingTrimBottom = loadImage("assets/moth-assets/moth_trimmed_wing_bottom.png")
+  wingTrimTop = loadImage("assets/moth-assets/moth_trimmed_wing_top_R.png")
+  wingTrimBottom = loadImage("assets/moth-assets/moth_trimmed_wing_bottom_R.png")
   ////////
 
   /// testing again -- future varibles just incase///
@@ -82,12 +75,10 @@ function setup() {
   // video.hide();
 
   // create wing objects
-  push()
-  wingtestLL = new Wings2(windowWidth / 5 - 9, height / 3 - 55, false, false, -200, 0, wingarrayLL, wingTrimTopL, wingTrimBottomL);
-  pop()
-  wingtestLR = new Wings2(windowWidth / 5 + 5, height / 3 - 55, false, true, 0, 0, wingarrayLR, wingTrimTop, wingTrimBottom);
-  wingtestUL = new Wings2(windowWidth / 5 - 9, height / 3 - 55, true, false, -200, 0, wingarrayUL, wingTrimTopL, wingTrimBottomL);
-  wingtestUR = new Wings2(windowWidth / 5 + 5, height / 3 - 55, true, true, 0, 0, wingarrayUR, wingTrimTop, wingTrimBottom);
+  wingtestLL = new Wings(windowWidth / 5 - 9, height / 3 - 55, false, false, -200, 0, wingTrimTopL, wingTrimBottomL);
+  wingtestLR = new Wings(windowWidth / 5 + 5, height / 3 - 55, false, true, 0, 0, wingTrimTop, wingTrimBottom);
+  wingtestUL = new Wings(windowWidth / 5 - 9, height / 3 - 55, true, false, -200, 0, wingTrimTopL, wingTrimBottomL);
+  wingtestUR = new Wings(windowWidth / 5 + 5, height / 3 - 55, true, true, 0, 0, wingTrimTop, wingTrimBottom);
 }
 
 let flapArray = [];
@@ -97,7 +88,6 @@ let flapLength = 1000;
 function draw() {
 
   // let startTime = performance.now();
-  // flap = flapArray[frameCount % flapLength];
   flap = sin(frameCount * 10) * 15;
   // let endTime = performance.now();
 
@@ -128,8 +118,6 @@ function draw() {
   image(grass1, 0, grass1Y, grass1Width, grassHeight);  // Left side
   image(grass2, (width / 2) - grass2Width, grassY, grass2Width, grassHeight);  // Right side
 
-  // background(bg);
-  // flap = sin(frameCount * 8)*15; 
   // 8 is the flap speed, 5 controls the flap range extremes
 
 
@@ -141,9 +129,6 @@ function draw() {
   // let endTime = performance.now();
   // console.log(endTime - startTime);
 
-
-  //drawRightWing(flap)
-
   wingtestLL.update(flapLL);
   wingtestLR.update(flapLR);
   wingtestUL.update(flapUL);
@@ -151,29 +136,7 @@ function draw() {
 
 
 
-  // wingtestLL = new Wings2(windowWidth / 5 - 9, height / 3 - 55, flapLL, false, false, 0, 0, wingarrayLL, wingTrimTop, wingTrimBottom)
-
-  //og img shift: -200, -180
-  // wingtestLL.update()
-
-
   //TO DO -> remove constructors & use update function
-  
-  // wingtestLR = new Wings2(windowWidth / 5 + 5, height / 3 - 55, flapLR, false, true, 0, 0, wingarrayLR, wingTrimTop, wingTrimBottom)
-  //og img shift: 0, -200
-  // wingtestLR.update()
-
-  // wingtestUL = new Wings2(windowWidth / 5 - 9, height / 3 - 55, flapUL, true, false, 0, 0, wingarrayUL, wingTrimTop, wingTrimBottom);
-  //og img shift: -200, -180
-  // wingtestUL.update()
-
-  // wingtestUR = new Wings2(windowWidth / 5 + 5, height / 3 - 55, flapUR, true, true, 0, 0, wingarrayUR, wingTrimTop, wingTrimBottom)
-  //og img shift: -0, -200
-  // wingtestUR.update()
-
-
-  // transX, transY, flapValue, wingTopBool, isRightBool, imageShiftX, imageShiftY, wingShape, wingClip, wingBottomClip
-
   drawAntennaeTest()
   drawAntennaeTestL()
 
