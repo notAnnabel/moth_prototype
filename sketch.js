@@ -52,12 +52,12 @@ function preload() {
     () => console.log("FAILED")
   );
 
-  
+
 }
 
 function setup() {
 
-// pre calculate sines
+  // pre calculate sines
   for (let i = 0; i < flapLength; i++) {
     let angle = i * 360 / flapLength;
     flapArray.push(sin(angle) * 15);
@@ -75,10 +75,11 @@ function setup() {
   // video.hide();
 
   // create wing objects
-  wingtestLL = new Wings(windowWidth / 5 - 9, height / 3 - 55, false, false, -200, 0, wingTrimTopL, wingTrimBottomL);
-  wingtestLR = new Wings(windowWidth / 5 + 5, height / 3 - 55, false, true, 0, 0, wingTrimTop, wingTrimBottom);
-  wingtestUL = new Wings(windowWidth / 5 - 9, height / 3 - 55, true, false, -200, 0, wingTrimTopL, wingTrimBottomL);
-  wingtestUR = new Wings(windowWidth / 5 + 5, height / 3 - 55, true, true, 0, 0, wingTrimTop, wingTrimBottom);
+  wingtestLL = new Wing(windowWidth / 5 - 9, height / 3 - 55, false, false, -200, 0, wingTrimTopL, wingTrimBottomL);
+  wingtestLR = new Wing(windowWidth / 5 + 5, height / 3 - 55, false, true, 0, 0, wingTrimTop, wingTrimBottom);
+  wingtestUL = new Wing(windowWidth / 5 - 9, height / 3 - 55, true, false, -200, 0, wingTrimTopL, wingTrimBottomL);
+  wingtestUR = new Wing(windowWidth / 5 + 5, height / 3 - 55, true, true, 0, 0, wingTrimTop, wingTrimBottom);
+  setupUI();
 }
 
 let flapArray = [];
@@ -140,10 +141,6 @@ function draw() {
   drawAntennaeTest()
   drawAntennaeTestL()
 
-  // document.getElementById("camera_capture") = function(){
-  //   //onResults(results)
-  // }
-
   // Draw UI in front at normal scale
   push();
   resetMatrix();
@@ -198,7 +195,9 @@ function drawBody() {
 function onResults(results) {
   if (results.multiHandLandmarks) {
     for (const landmarks of results.multiHandLandmarks) {
-      g_landmarks = landmarks;
+      g_landmarks = landmarks.map((value) => {
+        return { x: 1 - value.x, y: value.y, z: value.z };
+      });
     }
 
   }
@@ -222,8 +221,8 @@ let cameraFrame = 0;
 const camera = new Camera(videoElement, {
   onFrame: async () => {
     cameraFrame++;
-    if (cameraFrame%5 === 0)
-    await hands.send({ image: videoElement });
+    if (cameraFrame % 5 === 0)
+      await hands.send({ image: videoElement });
   },
   width: 1280,
   height: 720
