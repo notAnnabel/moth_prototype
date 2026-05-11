@@ -1,8 +1,4 @@
-let dots = [
-  // { x: 70, y: 90, r: 200, label: "Did you know that... " },
-  // { x: 500, y: 200, r: 200, label: "The sesond dot" },
-  // { x: 900, y: 80, r: 200, label: "3 Why do I have to suffer?!" }
-];
+
 let maxWidth = 800;
 
 function setupUI() {
