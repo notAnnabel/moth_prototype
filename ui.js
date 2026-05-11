@@ -1,13 +1,14 @@
-let dots = [
-  { x: 70, y: 90, r: 200, label: "Did you know that... " },
-  { x: 500, y: 200, r: 200, label: "The sesond dot" },
-  { x: 900, y: 80, r: 200, label: "3 Why do I have to suffer?!" }
-];
+
 let maxWidth = 800;
 
-function setup() {
-  createCanvas(windowWidth, windowHeight);
-  textAlign("CENTER");
+function setupUI() {
+
+  dots = [
+  { x: windowWidth * 0.1, y: 650, r: 200, label: "Helping in local conservation efforts and raising awareness of moths, can have a big impact on moth conservation." },
+  { x: windowWidth * 0.5, y: 200, r: 200, label: "Making your garden into a haven for moths will allow them to repopulate and feed, improving your local moth population." },
+  { x: windowWidth * 0.7, y: 700, r: 200, label: "Monitor taking part in surveys to record the number of moths helps give a better understanding of moth's lifecycles, food-plants, flight times, and distributions of moths. " } 
+]; // test text
+
 }
 
 function preload(){
@@ -42,7 +43,7 @@ function drawLabel(dot) {
 
 let div = createDiv(dot.label);
   div.addClass('p5div');
-  div.position(dot.x, dot.r);
+  div.position(dot.x, dot.y);
 
   setTimeout(() => {
     div.remove();
